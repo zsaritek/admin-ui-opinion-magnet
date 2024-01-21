@@ -26,7 +26,7 @@ function App() {
         />
 
         <Route
-          path="/companies/:companyId"
+          path="/companies/analysis"
           element={<IsPrivate> <CompanyDetailsPage /> </IsPrivate>}
         />
 
