@@ -6,6 +6,7 @@ function SignupPage(props) {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [name, setName] = useState("");
+    const [company, setCompany] = useState("");
     const [errorMessage, setErrorMessage] = useState(undefined);
 
     const navigate = useNavigate();
@@ -13,11 +14,12 @@ function SignupPage(props) {
     const handleEmail = (e) => setEmail(e.target.value);
     const handlePassword = (e) => setPassword(e.target.value);
     const handleName = (e) => setName(e.target.value);
+    const handleCompany = (e) => setCompany(e.target.value);
 
     const handleSignupSubmit = (e) => {
         e.preventDefault();
 
-        const requestBody = { email, password, name };
+        const requestBody = { email, password, name, company };
 
 
 
@@ -50,6 +52,9 @@ function SignupPage(props) {
 
                 <label>Name:</label>
                 <input type="text" name="name" value={name} onChange={handleName} />
+
+                <label>Company:</label>
+                <input type="text" name="company" value={company} onChange={handleCompany} />
 
                 <button type="submit">Sign Up</button>
             </form>
