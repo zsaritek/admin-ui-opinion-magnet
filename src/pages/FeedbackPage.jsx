@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import feedbackService from '../services/feedback.service';
+import FeedbackCard from '../components/FeedbackCard';
 
 function FeedbackPage() {
     const [feedbackData, setFeedbackData] = useState([]);
@@ -24,10 +25,7 @@ function FeedbackPage() {
             <h2>Feedback Page</h2>
             <ul>
                 {feedbackData.map((feedback) => (
-                    <li key={feedback._id}>
-                        <p>Rating : {feedback.rating}</p>
-                        <p>Feedback : {feedback.feedback}</p>
-                    </li>
+                    <FeedbackCard key={feedback._id} {...feedback} />
                 ))}
             </ul>
         </div>

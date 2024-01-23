@@ -55,7 +55,7 @@ nav li {
   border-radius: 4px;
 }
 
-.ProjectCard h3::after {
+.FeedbackCard h3::after {
   content: url("https://education-team-2020.s3.eu-west-1.amazonaws.com/web-dev/m3/icon-expand.png");
   margin-left: 5px;
 }
