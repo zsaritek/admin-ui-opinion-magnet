@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import { useState, useEffect } from 'react';
+import feedbackService from '../services/feedback.service';
 
 function FeedbackPage() {
     const [feedbackData, setFeedbackData] = useState([]);
@@ -7,8 +7,7 @@ function FeedbackPage() {
     useEffect(() => {
         const fetchFeedbackData = async () => {
             try {
-                const response = await axios.get('/api/feedback');
-                console.log("Response data:", response.data);
+                const response = await feedbackService.getFeedbackData()
                 setFeedbackData(response.data);
             } catch (error) {
                 console.error(error);

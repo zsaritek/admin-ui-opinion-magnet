@@ -58,7 +58,7 @@ function RegisterPage(props) {
 
             {errorMessage && <p className="error-message">{errorMessage}</p>}
 
-            <p>Already have account?</p>
+            <p>Already have registration?</p>
             <Link to={"/login"}> Login</Link>
         </div>
     );

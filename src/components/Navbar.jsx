@@ -19,7 +19,7 @@ function Navbar() {
                         <button>Company Details</button>
                     </Link>
 
-                    <Link to="/company/feedback">
+                    <Link to="/feedback">
                         <button>Feedback</button>
                     </Link>
 
