@@ -20,7 +20,9 @@ class FeedbackService {
     getFeedbackData = () => {
         return this.api.get("/feedback");
     };
-
+    getAverage = () => {
+        return this.api.get("/average")
+    }
 
 
 }

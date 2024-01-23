@@ -9,7 +9,7 @@ import RegisterPage from './pages/RegisterPage';
 import LoginPage from './pages/LoginPage';
 import HomePage from './pages/HomePage';
 import FeedbackPage from './pages/FeedbackPage';
-
+import FeedbackSummaryPage from './pages/FeedbackSummary';
 
 function App() {
 
@@ -33,6 +33,11 @@ function App() {
         <Route
           path="/feedback"
           element={<IsPrivate> <FeedbackPage /> </IsPrivate>}
+        />
+
+        <Route
+          path="/summary"
+          element={<IsPrivate> <FeedbackSummaryPage /> </IsPrivate>}
         />
 
 
