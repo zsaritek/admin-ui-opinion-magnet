@@ -3,12 +3,12 @@ import { Routes, Route } from "react-router-dom";
 import Navbar from './components/Navbar';
 import IsAnon from './components/IsAnon';
 import IsPrivate from './components/IsPrivate';
-import CompanyListPage from './pages/CompanyListPage';
 import CompanyDetailsPage from './pages/CompanyDetailsPage';
 import EditCompanyPage from './pages/EditCompanyPage';
-import SignupPage from './pages/SignupPage';
+import RegisterPage from './pages/RegisterPage';
 import LoginPage from './pages/LoginPage';
 import HomePage from './pages/HomePage';
+import FeedbackPage from './pages/FeedbackPage';
 
 
 function App() {
@@ -21,21 +21,22 @@ function App() {
         <Route path="/" element={<HomePage />} />
 
         <Route
-          path="/companies"
-          element={<IsPrivate> <CompanyListPage /> </IsPrivate>}
-        />
-
-        <Route
-          path="/companies/analysis"
+          path="/company/details"
           element={<IsPrivate> <CompanyDetailsPage /> </IsPrivate>}
         />
 
         <Route
-          path="/companies/edit/:companyId"
+          path="/company/edit/:companyId"
           element={<IsPrivate> <EditCompanyPage /> </IsPrivate>}
         />
 
-        <Route path="/signup" element={<IsAnon> <SignupPage /> </IsAnon>} />
+        <Route
+          path="/feedback"
+          element={<IsPrivate> <FeedbackPage /> </IsPrivate>}
+        />
+
+
+        <Route path="/register" element={<IsAnon> <RegisterPage /> </IsAnon>} />
         <Route path="/login" element={<IsAnon> <LoginPage /> </IsAnon>} />
 
       </Routes>

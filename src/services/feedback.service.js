@@ -1,13 +1,12 @@
 import axios from "axios";
 
-class CompanyService {
+class FeedbackService {
     constructor() {
         this.api = axios.create({
             baseURL: import.meta.env.VITE_API_URL || "http://localhost:5005",
         });
 
         this.api.interceptors.request.use((config) => {
-
             const storedToken = localStorage.getItem("authToken");
 
             if (storedToken) {
@@ -17,14 +16,15 @@ class CompanyService {
             return config;
         });
     }
-    getCompany = () => {
-        return this.api.get("/company");
-        // same as
-        // return axios.post("http://localhost:5005/auth/verify");
+
+    getFeedbackData = () => {
+        return this.api.get("/feedback");
     };
+
+
+
 }
 
+const feedbackService = new FeedbackService();
 
-const companyService = new CompanyService();
-
-export default companyService;
+export default feedbackService;

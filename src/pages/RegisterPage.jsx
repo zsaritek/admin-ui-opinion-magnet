@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import authService from "../services/auth.service";
 
-function SignupPage(props) {
+function RegisterPage(props) {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [name, setName] = useState("");
@@ -16,16 +16,13 @@ function SignupPage(props) {
     const handleName = (e) => setName(e.target.value);
     const handleCompany = (e) => setCompany(e.target.value);
 
-    const handleSignupSubmit = (e) => {
+    const handleRegisterSubmit = (e) => {
         e.preventDefault();
-
         const requestBody = { email, password, name, company };
 
-
-
         authService
-            .signup(requestBody)
-            .then((response) => {
+            .register(requestBody)
+            .then(() => {
                 navigate("/login");
             })
             .catch((error) => {
@@ -35,10 +32,10 @@ function SignupPage(props) {
     };
 
     return (
-        <div className="SignupPage">
-            <h1>Sign Up</h1>
+        <div className="RegisterPage">
+            <h1>Register</h1>
 
-            <form onSubmit={handleSignupSubmit}>
+            <form onSubmit={handleRegisterSubmit}>
                 <label>Email:</label>
                 <input type="email" name="email" value={email} onChange={handleEmail} />
 
@@ -56,7 +53,7 @@ function SignupPage(props) {
                 <label>Company:</label>
                 <input type="text" name="company" value={company} onChange={handleCompany} />
 
-                <button type="submit">Sign Up</button>
+                <button type="submit">Register</button>
             </form>
 
             {errorMessage && <p className="error-message">{errorMessage}</p>}
@@ -67,4 +64,4 @@ function SignupPage(props) {
     );
 }
 
-export default SignupPage;
+export default RegisterPage;

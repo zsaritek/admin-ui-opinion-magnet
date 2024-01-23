@@ -63,7 +63,7 @@ nav li {
 .EditCompanyPage,
 .AddProject,
 .AddTask,
-.SignupPage,
+.RegisterPage,
 .LoginPage {
   background: #f9eec3;
   border: 1px solid grey;
@@ -80,7 +80,7 @@ nav li {
   background-color: rgb(237, 165, 98);
 }
 
-.SignupPage,
+.RegisterPage,
 .LoginPage {
   background-color: #608dd5;
 }
@@ -90,18 +90,11 @@ nav li {
 }
 
 .EditCompanyPage form,
-.AddTask form,
-.AddProject form,
-.SignupPage form,
+.RegisterPage form,
 .LoginPage form {
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-
-.AddTask button,
-.AddProject button {
-  display: block;
 }
 
 .TaskCard {

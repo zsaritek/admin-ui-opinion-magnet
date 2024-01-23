@@ -19,8 +19,6 @@ function LoginPage(props) {
         e.preventDefault();
         const requestBody = { email, password };
 
-
-
         authService
             .login(requestBody)
             .then((response) => {
@@ -57,7 +55,7 @@ function LoginPage(props) {
             {errorMessage && <p className="error-message">{errorMessage}</p>}
 
             <p>Don't have an account yet?</p>
-            <Link to={"/signup"}> Sign Up</Link>
+            <Link to={"/register"}> Register</Link>
         </div>
     );
 }
