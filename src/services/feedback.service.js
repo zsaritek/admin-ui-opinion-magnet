@@ -21,7 +21,10 @@ class FeedbackService {
         return this.api.get("/feedback");
     };
     getAverage = () => {
-        return this.api.get("/average")
+        return this.api.get("/average");
+    }
+    getMostPopularWords = () => {
+        return this.api.get("/keywords");
     }
 
 
