@@ -10,6 +10,7 @@ import LoginPage from './pages/LoginPage';
 import HomePage from './pages/HomePage';
 import FeedbackPage from './pages/FeedbackPage';
 import FeedbackSummaryPage from './pages/FeedbackSummary';
+import ProfilePage from './pages/ProfilePage';
 
 function App() {
 
@@ -38,6 +39,11 @@ function App() {
         <Route
           path="/summary"
           element={<IsPrivate> <FeedbackSummaryPage /> </IsPrivate>}
+        />
+
+        <Route
+          path="/profile"
+          element={<IsPrivate> <ProfilePage /> </IsPrivate>}
         />
 
 
