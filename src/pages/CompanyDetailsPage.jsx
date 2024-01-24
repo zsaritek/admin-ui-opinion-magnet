@@ -34,6 +34,16 @@ function CompanyDetailsPage(props) {
         fetchData(); // Call the async function immediately
 
     }, [])
+
+    const handleRegenerateToken = async () => {
+        try {
+            const response = await companyService.regenerateAccessToken();
+            setCompany(response.data);
+        } catch (error) {
+            console.error("Error regenerating access token:", error);
+        }
+    };
+
     return (
         <div className="CompanyDetails">
             {company && (
@@ -42,6 +52,9 @@ function CompanyDetailsPage(props) {
                     <p>id:{company._id}</p>
                     <p>Access Token : {company.accessToken}</p>
                     <p>Created At: {company.createdAt}</p>
+                    <button onClick={handleRegenerateToken}>
+                        Regenerate Access Token
+                    </button>
                 </>
             )}
             <h2>This is the average rating of your company: {average}</h2>

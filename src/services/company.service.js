@@ -22,6 +22,10 @@ class CompanyService {
         // same as
         // return axios.post("http://localhost:5005/auth/verify");
     };
+
+    regenerateAccessToken = () => {
+        return this.api.patch("/company");
+    }
 }
 
 

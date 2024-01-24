@@ -23,6 +23,10 @@ function Navbar() {
                         <button>Feedback</button>
                     </Link>
 
+                    <Link to="/summary">
+                        <button>Feedback Summary</button>
+                    </Link>
+
                     <button onClick={logOutUser}>Logout</button>
                     <span>{user && user.name}</span>
                 </>
