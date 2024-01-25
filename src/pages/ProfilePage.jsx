@@ -2,6 +2,7 @@ import { useContext, useState, useEffect } from 'react';
 import { AuthContext } from "../context/auth.context";
 import profileService from '../services/profile.service';
 
+
 function ProfilePage() {
   const { user } = useContext(AuthContext);
   const [image, setImage] = useState("");
