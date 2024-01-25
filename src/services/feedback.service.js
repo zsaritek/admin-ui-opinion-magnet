@@ -26,6 +26,9 @@ class FeedbackService {
     getMostPopularWords = () => {
         return this.api.get("/keywords");
     }
+    getClusters = () => {
+        return this.api.get("/clustering")
+    }
 
 
 }
