@@ -4,7 +4,6 @@ import Navbar from './components/Navbar';
 import IsAnon from './components/IsAnon';
 import IsPrivate from './components/IsPrivate';
 import CompanyDetailsPage from './pages/CompanyDetailsPage';
-import EditCompanyPage from './pages/EditCompanyPage';
 import RegisterPage from './pages/RegisterPage';
 import LoginPage from './pages/LoginPage';
 import HomePage from './pages/HomePage';
@@ -24,11 +23,6 @@ function App() {
         <Route
           path="/company/details"
           element={<IsPrivate> <CompanyDetailsPage /> </IsPrivate>}
-        />
-
-        <Route
-          path="/company/edit/:companyId"
-          element={<IsPrivate> <EditCompanyPage /> </IsPrivate>}
         />
 
         <Route

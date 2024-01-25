@@ -3,6 +3,7 @@ import { useContext } from "react";
 import { AuthContext } from "../context/auth.context";
 
 
+
 function Navbar() {
     // Subscribe to the AuthContext to gain access to
     // the values from AuthContext.Provider `value` prop
@@ -29,6 +30,7 @@ function Navbar() {
 
                     <button onClick={logOutUser}>Logout</button>
                     <span>{user && user.name}</span>
+                    {user && user.loading}
                 </>
             )}
 
