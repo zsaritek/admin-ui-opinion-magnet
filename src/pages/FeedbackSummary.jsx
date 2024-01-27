@@ -8,7 +8,7 @@ function FeedbackSummaryPage(props) {
     const [keywords, setKeywords] = useState(null);
     const [clusters, setClusters] = useState(null);
     const [clusterwords, setClusterwords] = useState(null);
-    const [ratings, setRatings] = useState(null);
+    const [timedata, setTimedata] = useState(null);
     const [histogram, setHistogram] = useState([]);
 
     useEffect(() => {
@@ -27,16 +27,16 @@ function FeedbackSummaryPage(props) {
 
 
                 const ratings = await feedbackService.getRatings();
-                setRatings(ratings.data.ratings);
+                setTimedata(ratings.data.timeData);
                 setHistogram(ratings.data.histogram)
-                //console.log(ratings.data.histogram)
+                
             } catch (error) {
                 console.log(error)
             }
         }
         fetchData();
     }, [])
-    console.log(keywords)
+    console.log("Timedata", timedata)
     return (
         <div className="CompanyDetails">
             <h2>This is the average rating of your company: {average}</h2>
@@ -48,7 +48,7 @@ function FeedbackSummaryPage(props) {
                 </div>)
             })} */}
             <h2>Ratings over time:</h2>
-            {ratings && <AreaChart data={ratings} />}
+            {timedata && <AreaChart data={timedata} />}
             <h2>10 most frequently used words:</h2>
             {keywords && <ColumnChart data={keywords} />}
 
