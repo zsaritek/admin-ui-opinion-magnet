@@ -7,6 +7,7 @@ function FeedbackSummaryPage(props) {
     const [average, setAverage] = useState(0);
     const [keywords, setKeywords] = useState(null);
     const [clusters, setClusters] = useState(null);
+    const [clusterwords, setClusterwords] = useState(null);
     const [ratings, setRatings] = useState(null);
     const [histogram, setHistogram] = useState([]);
 
@@ -22,31 +23,34 @@ function FeedbackSummaryPage(props) {
                 console.log(keywords)
                 const clusters = await feedbackService.getClusters();
                 setClusters(clusters.data.clusters);
+                setClusterwords(clusters.data.clusterKeywords)
+
 
                 const ratings = await feedbackService.getRatings();
                 setRatings(ratings.data.ratings);
                 setHistogram(ratings.data.histogram)
-                console.log(ratings.data.histogram)
+                //console.log(ratings.data.histogram)
             } catch (error) {
                 console.log(error)
             }
         }
         fetchData();
     }, [])
-
+    console.log(keywords)
     return (
         <div className="CompanyDetails">
             <h2>This is the average rating of your company: {average}</h2>
-            <h2>Most frequently used words:</h2>
-            {keywords && <PieChart data={keywords} />}
+            <h2>Ratings distribution:</h2>
+            {histogram && <PieChart data={histogram} />}
             {/* {keywords && Object.entries(keywords).map(([key, value]) => {
                 return(<div key={key}>
                     <p>{key}:{value}</p>
                 </div>)
             })} */}
-
-            {keywords && <AreaChart data={ratings} />}
-            {histogram && <ColumnChart data={histogram} />}
+            <h2>Ratings over time:</h2>
+            {ratings && <AreaChart data={ratings} />}
+            <h2>10 most frequently used words:</h2>
+            {keywords && <ColumnChart data={keywords} />}
 
             <h2>Here are your customer cluster:</h2>
             <h2>Cluster 1:</h2>
@@ -57,6 +61,7 @@ function FeedbackSummaryPage(props) {
                      </div>
                 )
             })}
+            {clusterwords && <PieChart data={clusterwords[0]}/>}
             <h2>Cluster 2:</h2>
             {clusters && clusters[1].map(element => {
                 return (
@@ -65,6 +70,7 @@ function FeedbackSummaryPage(props) {
                      </div>
                 )
             })}
+            {clusterwords && <PieChart data={clusterwords[1]}/>}
             <h2>Cluster 3:</h2>
             {clusters && clusters[2].map(element => {
                 return (
@@ -73,6 +79,7 @@ function FeedbackSummaryPage(props) {
                      </div>
                 )
             })}
+            {clusterwords && <PieChart data={clusterwords[2]}/>}
         </div>
     );
 }
