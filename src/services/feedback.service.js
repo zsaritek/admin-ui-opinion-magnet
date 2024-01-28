@@ -27,10 +27,7 @@ class FeedbackService {
         return this.api.get("/keywords");
     }
     getClusters = () => {
-        return this.api.get("/clustering");
-    }
-    getRatings = () => {
-        return this.api.get("/ratings");
+        return this.api.get("/clustering")
     }
 
 

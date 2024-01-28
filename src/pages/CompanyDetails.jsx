@@ -1,27 +1,11 @@
-import { Link } from "react-router-dom"
-import { useContext, useState, useEffect } from "react";
-import { AuthContext } from "../context/auth.context";
+import { useState, useEffect } from "react";
 import companyService from "../services/company.service";
 import Spinner from '../components/Spinner';
 
-
-function CompanyDetailsPage(props) {
-    const { user } = useContext(AuthContext)
-    const [average, setAverage] = useState(0);
+function CompanyDetails() {
     const [company, setCompany] = useState();
     const [loading, setLoading] = useState(false);
-    // useEffect(() => {
-    //     const fetchData = async () => {
-    //         try {
-    //             const average = await axios.get(`http://localhost:5005/api/average/${user._id}`);
-    //             console.log(average.data)
-    //             setAverage(average.data.averageRating)
-    //         } catch (error) {
-    //             console.log(error)
-    //         }
-    //     }
-    //     fetchData();
-    // }, [user._id])
+
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -54,8 +38,9 @@ function CompanyDetailsPage(props) {
         }
     };
 
+
     return (
-        <div className="CompanyDetails">
+        <div>
             {loading ? (
                 <Spinner />
             ) : (
@@ -72,7 +57,7 @@ function CompanyDetailsPage(props) {
                 )
             )}
         </div>
-    );
+    )
 }
 
-export default CompanyDetailsPage;
+export default CompanyDetails

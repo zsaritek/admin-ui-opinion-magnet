@@ -7,7 +7,7 @@ function ProfilePage() {
   const { user } = useContext(AuthContext);
   const [image, setImage] = useState("");
   const [url, setUrl] = useState("");
-   
+
   useEffect(() => {
     setUrl(user.image)
   }, [])
@@ -34,18 +34,18 @@ function ProfilePage() {
     }
   };
 
-    const handleImage = (e) => {
-        
-        setImage(e.target.files[0])
-    }
-   
+  const handleImage = (e) => {
+
+    setImage(e.target.files[0])
+  }
+
 
   return (
     <div>
-        {url && <img src={url} alt="Profile Image" />}
-        <form onSubmit={handleUpload}>
+      {url && <img src={url} alt="Profile Image" />}
+      <form onSubmit={handleUpload}>
         <label>image:</label>
-        <input 
+        <input
           type="file"
           name="image"
           onChange={handleImage}
@@ -53,7 +53,6 @@ function ProfilePage() {
 
         <button type="submit">Upload Profile image</button>
       </form>
-        
     </div>
   )
 }

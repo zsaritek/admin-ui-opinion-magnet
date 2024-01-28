@@ -3,7 +3,7 @@ import feedbackService from "../services/feedback.service";
 import { PieChart, AreaChart, BarChart, ColumnChart } from 'react-chartkick';
 import 'chartkick/chart.js'
 
-function FeedbackSummaryPage(props) {
+function Analytics() {
     const [average, setAverage] = useState(0);
     const [keywords, setKeywords] = useState(null);
     const [clusters, setClusters] = useState(null);
@@ -29,7 +29,7 @@ function FeedbackSummaryPage(props) {
                 const ratings = await feedbackService.getRatings();
                 setTimedata(ratings.data.timeData);
                 setHistogram(ratings.data.histogram)
-                
+
             } catch (error) {
                 console.log(error)
             }
@@ -57,31 +57,32 @@ function FeedbackSummaryPage(props) {
             {clusters && clusters[0].map(element => {
                 return (
                     <div key={element._id}>
-                    {element.feedback}
-                     </div>
+                        {element.feedback}
+                    </div>
                 )
             })}
-            {clusterwords && <PieChart data={clusterwords[0]}/>}
+            {clusterwords && <PieChart data={clusterwords[0]} />}
             <h2>Cluster 2:</h2>
             {clusters && clusters[1].map(element => {
                 return (
                     <div key={element._id}>
-                    {element.feedback}
-                     </div>
+                        {element.feedback}
+                    </div>
                 )
             })}
-            {clusterwords && <PieChart data={clusterwords[1]}/>}
+            {clusterwords && <PieChart data={clusterwords[1]} />}
             <h2>Cluster 3:</h2>
             {clusters && clusters[2].map(element => {
                 return (
                     <div key={element._id}>
-                    {element.feedback}
-                     </div>
+                        {element.feedback}
+                    </div>
                 )
             })}
-            {clusterwords && <PieChart data={clusterwords[2]}/>}
+            {clusterwords && <PieChart data={clusterwords[2]} />}
         </div>
     );
 }
 
-export default FeedbackSummaryPage;
+
+export default Analytics

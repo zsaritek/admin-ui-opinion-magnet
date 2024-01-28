@@ -18,11 +18,6 @@ function AuthProviderWrapper(props) {
 
         // If the token exists in the localStorage
         if (storedToken) {
-            // axios.get(
-            //  `${API_URL}/auth/verify`,
-            //  { headers: { Authorization: `Bearer ${storedToken}`} }
-            // )
-
             authService
                 .verify()
                 .then((response) => {

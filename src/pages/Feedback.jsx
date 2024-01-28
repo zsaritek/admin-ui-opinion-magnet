@@ -1,8 +1,7 @@
 import { useState, useEffect } from 'react';
 import feedbackService from '../services/feedback.service';
-import FeedbackCard from '../components/FeedbackCard';
 
-function FeedbackPage() {
+function Feedback() {
     const [feedbackData, setFeedbackData] = useState([]);
 
     useEffect(() => {
@@ -18,18 +17,21 @@ function FeedbackPage() {
         fetchFeedbackData();
     }, []);
 
-
-
     return (
-        <div>
-            <h2>Feedback Page</h2>
-            <ul>
-                {feedbackData.map((feedback) => (
-                    <FeedbackCard key={feedback._id} {...feedback} />
-                ))}
-            </ul>
+        <div >
+            {feedbackData.map(({ _id, feedback, rating, createdAt }) => {
+                return (
+                    <div key={_id} >
+                        <div>
+                            <p>Review: {feedback} </p>
+                            <p>Rating: {rating}</p>
+                            <p>Date: {createdAt}</p>
+                        </div>
+                    </div>
+                );
+            })}
         </div>
-    );
+    )
 }
 
-export default FeedbackPage
+export default Feedback

@@ -1,9 +1,9 @@
 function HomePage() {
     return (
-        <div>
-            <h1>REACT OPINION MAGNET HOME PAGE</h1>
-        </div>
-    );
+        <>
+            Opinion Magnet Home Page
+        </>
+    )
 }
 
-export default HomePage;
+export default HomePage
