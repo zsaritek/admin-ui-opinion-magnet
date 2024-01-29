@@ -28,7 +28,7 @@ export const features = [
     icon: images.Iconsecurity,
     title: "Security you can trust",
     content:
-      "2-factor authentication and user-controlled encryption are just a couple of the security features we allow to help secure your files.",
+      "We employ cutting-edge technology to safeguard your data. If you misplace your login token, we generate a new one for your convenience.",
   },
   {
     id: "feature-3",
@@ -84,7 +84,7 @@ export const contactInfo = [
     id: "Email",
     icon: images.iconEmail,
     link: "#",
-    text: " opinion-magnet@react.com",
+    text: " support@opinion-magnet.com",
   },
 ]
 
