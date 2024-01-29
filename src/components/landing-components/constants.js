@@ -4,11 +4,6 @@ import { faFacebookF, faInstagram, faTwitter } from '@fortawesome/free-brands-sv
 
 export const navLinks = [
   {
-    id: "features",
-    title: "Features",
-    route: "/features",
-  },
-  {
     id: "Log In",
     title: "Log In",
     route: "/login",

@@ -1,10 +1,12 @@
 import logo from '../../assets/landing-assets/logo.png';
 import { navLinks } from "./constants";
+import { useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
+  const navigate = useNavigate();
   return (
     <nav className='w-full flex justify-between text-white navbar px-4 py-4 md:px-16 md:py-8'>
-      <img src={logo} alt="logo" className="w-[90px] h-[30px]" />
+      <img src={logo} alt="logo" className="w-[90px] h-[30px]" onClick={() => (navigate("/"))} />
       <ul className='list-none justify-end items-center flex flex-1'>
 
         {navLinks.map((nav, index) => (
