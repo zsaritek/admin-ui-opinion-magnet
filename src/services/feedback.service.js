@@ -29,6 +29,9 @@ class FeedbackService {
     getClusters = () => {
         return this.api.get("/clustering")
     }
+    getRatings = () => {
+        return this.api.get("/ratings");
+    }
 
 
 }
