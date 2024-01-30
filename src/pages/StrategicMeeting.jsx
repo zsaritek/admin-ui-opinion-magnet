@@ -1,9 +1,8 @@
 
-
-const StrategicAnalysisInfoPage = () => {
+const StrategicMeeting = () => {
     return (
         <div className="container mx-auto p-8">
-            <h1 className="text-3xl font-semibold mb-6">Strategic Analysis Information Page</h1>
+            <h1 className="text-3xl font-semibold mb-6">Strategic Meeting</h1>
 
             <p className="mb-4">
                 Hello valued customer! Our strategic analysis page provides information about the valuable services we offer to guide investment banks in the IPO process for unicorn companies.
@@ -24,4 +23,4 @@ const StrategicAnalysisInfoPage = () => {
     );
 };
 
-export default StrategicAnalysisInfoPage;
+export default StrategicMeeting;

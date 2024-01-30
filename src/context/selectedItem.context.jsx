@@ -7,6 +7,7 @@ function SelectedItemProviderWrapper(props) {
     const [feedback, setFeedback] = useState(false)
     const [companyDetails, setCompanyDetails] = useState(false)
     const [analytics, setAnalytics] = useState(false)
+    const [strategicMeeting, setStrategicMeeting] = useState(false)
     const [helpCenter, setHelpCenter] = useState(false)
 
     useEffect(() => {
@@ -19,6 +20,7 @@ function SelectedItemProviderWrapper(props) {
         setCompanyDetails(false)
         setAnalytics(false)
         setHelpCenter(false)
+        setStrategicMeeting(false)
     }
 
     const selectDashboard = () => {
@@ -43,6 +45,10 @@ function SelectedItemProviderWrapper(props) {
         reset()
         setHelpCenter(true)
     }
+    const selectStrategicMeeting = () => {
+        reset()
+        setStrategicMeeting(true)
+    }
 
     return (
         <SelectedItemContext.Provider
@@ -52,11 +58,13 @@ function SelectedItemProviderWrapper(props) {
                 companyDetails,
                 helpCenter,
                 analytics,
+                strategicMeeting,
                 selectDashboard,
                 selectFeedback,
                 selectHelpCenter,
                 selectCompanyDetails,
-                selectAnalytics
+                selectAnalytics,
+                selectStrategicMeeting
             }}
         >
             {props.children}

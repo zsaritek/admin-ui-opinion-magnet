@@ -7,6 +7,7 @@ import PanelLayout from "./pages/PanelLayout";
 import Profile from './pages/Profile';
 import Landing from './pages/Landing';
 
+
 function App() {
   return (
     <>
@@ -19,6 +20,7 @@ function App() {
         {/* Authenticated pages */}
         <Route path="/dashboard" element={<IsPrivate> <PanelLayout /> </IsPrivate>}></Route>
         <Route path="/profile" element={<IsPrivate> <Profile /> </IsPrivate>}></Route>
+
 
       </Routes>
     </>

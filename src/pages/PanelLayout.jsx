@@ -7,6 +7,7 @@ import Feedback from "./Feedback";
 import CompanyDetails from "./CompanyDetails";
 import Analytics from "./Analytics";
 import HelpCenter from "./HelpCenter";
+import StrategicMeeting from "./StrategicMeeting";
 
 function PanelLayout() {
     const { dashboard,
@@ -14,11 +15,13 @@ function PanelLayout() {
         companyDetails,
         helpCenter,
         analytics,
+        strategicMeeting,
         selectDashboard,
         selectFeedback,
         selectHelpCenter,
         selectCompanyDetails,
-        selectAnalytics } = useContext(SelectedItemContext)
+        selectAnalytics,
+        selectStrategicMeeting } = useContext(SelectedItemContext)
     return (
         <div className="flex">
             <Sidebar selectDashboard={selectDashboard}
@@ -26,6 +29,7 @@ function PanelLayout() {
                 selectAnalytics={selectAnalytics}
                 selectCompanyDetails={selectCompanyDetails}
                 selectHelpCenter={selectHelpCenter}
+                selectStrategicMeeting={selectStrategicMeeting}
             />
             <main className="grow">
                 <div className="flex flex-col py-10 px-16 h-screen overflow-y-auto w-full">
@@ -34,6 +38,7 @@ function PanelLayout() {
                     {companyDetails && <CompanyDetails />}
                     {analytics && <Analytics />}
                     {helpCenter && <HelpCenter />}
+                    {strategicMeeting && <StrategicMeeting />}
                 </div>
             </main>
         </div>

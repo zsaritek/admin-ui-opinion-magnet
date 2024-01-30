@@ -7,7 +7,8 @@ import {
   HelpCircleIcon,
   MessagesSquareIcon,
   Building2Icon,
-  LogOutIcon
+  LogOutIcon,
+  HeartHandshakeIcon
 } from "lucide-react";
 import { motion } from "framer-motion";
 import { AuthContext } from "../context/auth.context";
@@ -19,7 +20,8 @@ function Sidebar(props) {
     selectFeedback,
     selectHelpCenter,
     selectCompanyDetails,
-    selectAnalytics } = props;
+    selectAnalytics,
+    selectStrategicMeeting } = props;
   const [isExpanded, setIsExpanded] = useState(true);
   const [activeNavIndex, setActiveNavIndex] = useState(0);
   const navigate = useNavigate();
@@ -58,6 +60,13 @@ function Sidebar(props) {
       icon: BarChart3Icon,
       onClick: () => {
         selectAnalytics()
+      }
+    },
+    {
+      name: "Strategic Meeting",
+      icon: HeartHandshakeIcon,
+      onClick: () => {
+        selectStrategicMeeting()
       }
     },
     {
