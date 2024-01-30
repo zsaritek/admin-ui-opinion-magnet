@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import companyService from "../services/company.service";
 import Spinner from '../components/Spinner';
+import { Descriptions, Button } from 'antd';
 
 function CompanyDetails() {
     const [company, setCompany] = useState();
@@ -10,33 +11,45 @@ function CompanyDetails() {
         const fetchData = async () => {
             try {
                 setLoading(true);
-
                 const response = await companyService.getCompany();
-                setCompany(response.data);
+                const company = response.data
+                const items = [
+                    { key: '1', label: 'Company Name', children: company.name },
+                    { key: '2', label: 'Company ID', children: company._id },
+                    { key: '3', label: 'Access Token', children: company.accessToken },
+                    { key: '4', label: 'Created At', children: company.createdAt },
+                ];
+                setCompany(items);
             } catch (error) {
-                // Handle the error
                 console.error("Error fetching company data:", error);
             } finally {
                 setLoading(false);
             }
         };
 
-        fetchData(); // Call the async function immediately
+        fetchData();
 
     }, [])
 
     const handleRegenerateToken = async () => {
         try {
             setLoading(true);
-
             const response = await companyService.regenerateAccessToken();
-            setCompany(response.data);
+            const company = response.data
+            const items = [
+                { key: '1', label: 'Company Name', children: company.name },
+                { key: '2', label: 'Company ID', children: company._id },
+                { key: '3', label: 'Access Token', children: company.accessToken },
+                { key: '4', label: 'Created At', children: company.createdAt },
+            ];
+            setCompany(items);
         } catch (error) {
             console.error("Error regenerating access token:", error);
         } finally {
             setLoading(false);
         }
     };
+
 
 
     return (
@@ -46,18 +59,15 @@ function CompanyDetails() {
             ) : (
                 company && (
                     <>
-                        <h1>{company.name}</h1>
-                        <p>id:{company._id}</p>
-                        <p>Access Token : {company.accessToken}</p>
-                        <p>Created At: {company.createdAt}</p>
-                        <button onClick={handleRegenerateToken}>
+                        <Descriptions title="Company Info" items={company} />
+                        <Button onClick={handleRegenerateToken}>
                             Regenerate Access Token
-                        </button>
+                        </Button>
                     </>
                 )
             )}
         </div>
-    )
+    );
 }
 
-export default CompanyDetails
+export default CompanyDetails;

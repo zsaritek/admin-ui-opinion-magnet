@@ -6,6 +6,7 @@ import Register from "./pages/Register";
 import PanelLayout from "./pages/PanelLayout";
 import Profile from './pages/Profile';
 import Landing from './pages/Landing';
+import HowOpinionMagnetWorks from './pages/HowOpinionMagnetWorks';
 
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
         {/* Anonymous pages */}
         <Route path="/login" element={<IsAnon><Login /></IsAnon>} />
         <Route path="/register" element={<IsAnon><Register /></IsAnon>} />
+        <Route path="/usage" element={<IsAnon><HowOpinionMagnetWorks /></IsAnon>} />
         <Route path="/" element={<IsAnon><Landing /></IsAnon>} />
 
         {/* Authenticated pages */}

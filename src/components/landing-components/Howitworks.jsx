@@ -17,7 +17,7 @@ const Howitworks = () =>
         Our commitment to excellence extends beyond strategy.This system allows us to gather valuable insights directly
         from our clients, enabling us to tailor our strategic guidance to their unique needs and preferences.
       </p>
-      <a href="#" className='text-[15px]  border-b-[1px] border-secondary-cyangradient text-secondary-cyangradient pb-1'>
+      <a href="/usage" className='text-[15px]  border-b-[1px] border-secondary-cyangradient text-secondary-cyangradient pb-1'>
         <span>See how Opinion Magnet works</span><img src={images.ArrowIcon} alt="arrow" className='inline ml-1 w-[20px]' />
       </a>
     </div>
