@@ -38,21 +38,45 @@ function Analytics() {
     }, [])
     console.log("Timedata", timedata)
     return (
-        <div className="CompanyDetails">
-            <h2>This is the average rating of your company: {average}</h2>
-            <h2>Ratings distribution:</h2>
-            {histogram && <PieChart data={histogram} />}
-            {/* {keywords && Object.entries(keywords).map(([key, value]) => {
-                return(<div key={key}>
-                    <p>{key}:{value}</p>
-                </div>)
-            })} */}
-            <h2>Ratings over time:</h2>
-            {timedata && <AreaChart data={timedata} />}
-            <h2>10 most frequently used words:</h2>
-            {keywords && <ColumnChart data={keywords} />}
+        <div>
+            <div className="flex flex-col justify-center mb-80 sm:flex-row"> 
+                <div className=" flex-col p-10 border w-1/4">
+                    <div className="p-10  border m-10">
+                        <h2>This is the average rating of your company: {average}</h2>
+                    </div>
+                    <div className="p-10  border m-10">
+                        <h2> This is the number of users you have</h2>
+                    </div>
+                    <div className="p-10  border m-10">
+                        <h2> Ratings per Customer %</h2>
+                    </div>
+                </div>
 
-            <h2>Here are your customer cluster:</h2>
+                <div className=" flex-col p-10 border w-3/4">
+                    <div className="flex w-full flex-col sm:flex-row justify-center">
+                        <div className="p-10 border m-10">
+                            <h2>Ratings distribution:</h2>
+                            {histogram && <PieChart data={histogram} />}
+                        </div>
+                        <div className="p-10 border m-10">
+                            <h2>10 most frequently used words:</h2>
+                            {keywords && <ColumnChart data={keywords} />}
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h2>Ratings over time:</h2>
+                        {timedata && <AreaChart data={timedata} />}
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+
+            {/* <h2>Here are your customer cluster:</h2>
             <h2>Cluster 1:</h2>
             {clusters && clusters[0].map(element => {
                 return (
@@ -79,7 +103,7 @@ function Analytics() {
                     </div>
                 )
             })}
-            {clusterwords && <PieChart data={clusterwords[2]} />}
+            {clusterwords && <PieChart data={clusterwords[2]} />} */}
         </div>
     );
 }
