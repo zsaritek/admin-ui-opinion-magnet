@@ -25,7 +25,7 @@ function HelpCenter() {
         <div>
             <div className="p-3 max-w-7xl m-auto">
                 <div>
-                    <div className="title-banner my-6 py-24 bg-red-500 text-center rounded-lg sm:my-10">
+                    <div className="title-banner my-6 py-24 bg-rose-400 text-center rounded-lg sm:my-10">
                         <h1 className="text-3xl font-bold text-white mx-6 md:text-5xl sm:text-4xl">
                             24/7 Full Support
                         </h1>
@@ -79,7 +79,7 @@ function HelpCenter() {
                         ))}
                         <div className="w-full text-left">
                             <button
-                                className="flex justify-center items-center gap-2 w-full py-3 px-4 bg-red-500 text-white text-sm font-bold border border-red-500 rounded-md ease-in-out duration-150 shadow-slate-600 hover:bg-white hover:text-red-500 lg:m-0 md:w-max md:px-6"
+                                className="flex justify-center items-center gap-2 w-full py-3 px-4 bg-rose-400 text-white text-sm font-bold border border-red-500 rounded-md ease-in-out duration-150 shadow-slate-600 hover:bg-white hover:text-red-500 lg:m-0 md:w-max md:px-6"
                                 title="Send"
                                 type="submit"
                             >

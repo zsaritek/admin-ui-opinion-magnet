@@ -13,7 +13,7 @@ const StrategicMeeting = () => {
             </p>
 
             <p className="mb-4">
-                If you would like to request a detailed meeting or get more information, please feel free to contact us. We are eager to serve you better!
+                If you would like to request a detailed meeting or get more information, please arrange your appointment. We are eager to serve you better!
             </p>
 
             <button className="bg-blue-500 text-white py-2 px-4 rounded-full hover:bg-blue-600">

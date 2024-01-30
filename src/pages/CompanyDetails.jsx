@@ -59,7 +59,8 @@ function CompanyDetails() {
             ) : (
                 company && (
                     <>
-                        <Descriptions title="Company Info" items={company} />
+                        <Descriptions title="Company Info" column={1} bordered items={company} />
+                        <br></br>
                         <Button onClick={handleRegenerateToken}>
                             Regenerate Access Token
                         </Button>
