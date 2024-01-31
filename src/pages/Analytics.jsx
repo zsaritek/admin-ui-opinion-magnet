@@ -38,35 +38,48 @@ function Analytics() {
     }, [])
     console.log("Timedata", timedata)
     return (
-        <div>
-            <div className="flex flex-col justify-center mb-80 sm:flex-row"> 
-                <div className=" flex-col p-10 border w-1/4">
-                    <div className="p-10  border m-10">
-                        <h2>This is the average rating of your company: {average}</h2>
+        <div className="bg-[#FF8C8C] rounded-lg flex justify-center items-center">
+            <div className="flex flex-col justify-center w-full sm:flex-row"> 
+                <div className=" flex-col w-10/12 sm:w-1/4 rounded-lg mt-10 sm:mb-10 sm:ml-10 mx-auto">
+                    <div className="flex flex-col p-3 sm:p-0 justify-center items-center w-full sm:h-1/4 bg-[#FFE1ED] rounded-lg mb-1" style={{ background: 'radial-gradient(circle at center, #FFE1ED 50%, rgba(335, 220, 220)100%)', boxShadow: '0 4px 6px rgba(0, 0, 0, 0.4)' }}>
+                        <h1 className="text-5xl mb-3 sm:mb-10 text-gray-800" >{average}</h1>
+                        <h2 className="text-gray-800">Average rating</h2>
                     </div>
-                    <div className="p-10  border m-10">
-                        <h2> This is the number of users you have</h2>
+                    <div className="flex flex-col p-3 sm:p-0 justify-center items-center    w-full sm:h-1/4 bg-[#FFE1ED] rounded-lg mb-1" style={{ background: 'radial-gradient(circle at center, #FFE1ED 50%, rgba(335, 220, 220)100%)', boxShadow: '0 4px 6px rgba(0, 0, 0, 0.4)' }}>
+                        <h2 className="text-5xl mb-3 sm:mb-10 text-gray-800"> 34</h2>
+                        <h2 className="text-gray-800"> Number of feedbacks</h2>
                     </div>
-                    <div className="p-10  border m-10">
-                        <h2> Ratings per Customer %</h2>
+                    <div className="flex flex-col p-3 sm:p-0 justify-center items-center   w-full sm:h-1/4 bg-[#FFE1ED] rounded-lg mb-1" style={{ background: 'radial-gradient(circle at center, #FFE1ED 50%, rgba(335, 220, 220)100%)', boxShadow: '0 4px 6px rgba(0, 0, 0, 0.4)' }}>
+                        <h2 className="text-5xl mb-3 sm:mb-10 text-gray-800"> 22</h2>
+                        <h2 className="text-gray-800"> Words/feedback</h2>
+                    </div>
+                    <div className="flex flex-col p-3 sm:p-0 justify-center items-center    w-full sm:h-1/4 bg-[#FFE1ED] rounded-lg " style={{ background: 'radial-gradient(circle at center, #FFE1ED 50%, rgba(335, 220, 220)100%)', boxShadow: '0 4px 6px rgba(0, 0, 0, 0.4)' }}>
+                        <h2 className="text-5xl mb-3 sm:mb-10 text-gray-800"> 12</h2>
+                        <h2 className="text-gray-800"> Feedbacks/user</h2>
                     </div>
                 </div>
 
-                <div className=" flex-col p-10 border w-3/4">
+                <div className=" flex-col w-3/4 rounded-lg mt-3 sm:mt-10 mb-7 sm:mr-10 mx-auto" >
                     <div className="flex w-full flex-col sm:flex-row justify-center">
-                        <div className="p-10 border m-10">
-                            <h2>Ratings distribution:</h2>
-                            {histogram && <PieChart data={histogram} />}
+                        <div className="flex justify-center p-8 w-full bg-[#FFE1ED] rounded-lg mb-1 sm:ml-1 sm:mr-1" style={{ background: 'radial-gradient(circle at center, #FFE1ED 50%, rgba(335, 220, 220)100%)', boxShadow: '0 4px 6px rgba(0, 0, 0, 0.4)' }}>
+                            <div className="flex flex-col items-center w-9/12 ">
+                                <h2 className="text-gray-800">Ratings distribution:</h2>
+                                {histogram && <PieChart data={histogram} donut={true} colors={["#4AAEA3", "#7D84B2", "#8FA6CB", "#DBF4A7", "#D5F9DE"]}/>}
+                            </div>
                         </div>
-                        <div className="p-10 border m-10">
-                            <h2>10 most frequently used words:</h2>
-                            {keywords && <ColumnChart data={keywords} />}
+                        <div className="flex flex-col justify-center items-center p-8 w-full bg-[#FFE1ED] rounded-lg mb-1" style={{ background: 'radial-gradient(circle at center, #FFE1ED 50%, rgba(335, 220, 220)100%)', boxShadow: '0 4px 6px rgba(0, 0, 0, 0.4)' }}>
+                            <div className="flex flex-col items-center w-9/12 ">
+                                <h2 className="text-gray-800">10 most frequent words:</h2>
+                                {keywords && <ColumnChart data={keywords} colors={['#4AAEA3']}/>}
+                            </div>
                         </div>
                     </div>
                     
-                    <div>
-                        <h2>Ratings over time:</h2>
-                        {timedata && <AreaChart data={timedata} />}
+                    <div className="flex flex-col justify-center items-center p-8 w-90 bg-[#FFE1ED] rounded-lg sm:ml-1" style={{ background: 'radial-gradient(circle at center, #FFE1ED 50%, rgba(335, 220, 220)100%)', boxShadow: '0 4px 6px rgba(0, 0, 0, 0.4)' }}>
+                        <div className="flex flex-col items-center w-full">
+                            <h2 className="text-gray-800">Ratings over time:</h2>
+                            {timedata && <AreaChart data={timedata} colors={['#4AAEA3']}/>}
+                        </div>
                     </div>
                 </div>
             </div>
