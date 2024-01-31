@@ -5,6 +5,10 @@ import 'chartkick/chart.js'
 
 function Analytics() {
     const [average, setAverage] = useState(0);
+    const [numberFeedbacks, setNumberFeedbacks] = useState(0);
+    const [averageWordNumber, setAverageWordNumber] = useState(0);
+    const [feedbacksPerMonth, setfeedbacksPerMonth] = useState(0);
+    const [month, setMonth] = useState(0);
     const [keywords, setKeywords] = useState(null);
     const [clusters, setClusters] = useState(null);
     const [clusterwords, setClusterwords] = useState(null);
@@ -15,12 +19,14 @@ function Analytics() {
         const fetchData = async () => {
             try {
                 const average = await feedbackService.getAverage();
-                //console.log(average.data)
                 setAverage(average.data.averageRating)
+                setNumberFeedbacks(average.data.numberFeedbacks)
+                setAverageWordNumber(average.data.averageWordNumber)
+                setfeedbacksPerMonth(average.data.feedbacksPerMonth)
 
                 const words = await feedbackService.getMostPopularWords();
                 setKeywords(words.data.popularWords);
-                console.log(keywords)
+                
                 const clusters = await feedbackService.getClusters();
                 setClusters(clusters.data.clusters);
                 setClusterwords(clusters.data.clusterKeywords)
@@ -36,7 +42,14 @@ function Analytics() {
         }
         fetchData();
     }, [])
-    console.log("Timedata", timedata)
+
+    const handleMonth = (el) => {
+        console.log(el)
+        console.log(feedbacksPerMonth)
+        console.log(feedbacksPerMonth[el])
+        setMonth(feedbacksPerMonth[el])
+    }
+    
     return (
         <div className="bg-[#FF8C8C] rounded-lg flex justify-center items-center">
             <div className="flex flex-col justify-center w-full sm:flex-row"> 
@@ -46,16 +59,20 @@ function Analytics() {
                         <h2 className="text-gray-800">Average rating</h2>
                     </div>
                     <div className="flex flex-col p-3 sm:p-0 justify-center items-center    w-full sm:h-1/4 bg-[#fdf4f7] rounded-lg mb-1" style={{  boxShadow: '0 4px 6px rgba(0, 0, 0, 0.4)' }}>
-                        <h2 className="text-5xl mb-3 sm:mb-10 text-gray-800"> 34</h2>
+                        <h2 className="text-5xl mb-3 sm:mb-10 text-gray-800">{numberFeedbacks}</h2>
                         <h2 className="text-gray-800"> Number of feedbacks</h2>
                     </div>
                     <div className="flex flex-col p-3 sm:p-0 justify-center items-center   w-full sm:h-1/4 bg-[#fdf4f7] rounded-lg mb-1" style={{  boxShadow: '0 4px 6px rgba(0, 0, 0, 0.4)' }}>
-                        <h2 className="text-5xl mb-3 sm:mb-10 text-gray-800"> 22</h2>
+                        <h2 className="text-5xl mb-3 sm:mb-10 text-gray-800"> {averageWordNumber}</h2>
                         <h2 className="text-gray-800"> Words/feedback</h2>
                     </div>
                     <div className="flex flex-col p-3 sm:p-0 justify-center items-center    w-full sm:h-1/4 bg-[#fdf4f7] rounded-lg " style={{  boxShadow: '0 4px 6px rgba(0, 0, 0, 0.4)' }}>
-                        <h2 className="text-5xl mb-3 sm:mb-10 text-gray-800"> 12</h2>
-                        <h2 className="text-gray-800"> Feedbacks/user</h2>
+                        <p>{["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"].map((el, index) =>{
+                            return <span key={index} onClick={() => handleMonth(el)}>{el}</span>
+                        }
+                         )}</p>
+                        <h2 className="text-5xl mb-3 sm:mb-10 text-gray-800"> {month}</h2>
+                        <h2 className="text-gray-800"> Number of feedbacks</h2>
                     </div>
                 </div>
 
