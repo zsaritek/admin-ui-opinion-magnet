@@ -11,12 +11,14 @@ const columns = [
     {
         title: 'Rating',
         dataIndex: 'rating',
-        key: 'rating'
+        key: 'rating',
+        sorter: (a, b) => a.rating - b.rating
     },
     {
         title: 'Date',
         dataIndex: 'date',
-        key: 'date'
+        key: 'date',
+        sorter: (a, b) => Date.parse(a.date) - Date.parse(b.date)
     },
 
 ]
@@ -24,6 +26,8 @@ const columns = [
 
 function Feedback() {
     const [feedbackData, setFeedbackData] = useState([]);
+    const [page, setPage] = useState(1);
+    const [pageSize, setPageSize] = useState(20);
 
     useEffect(() => {
         const fetchFeedbackData = async () => {
@@ -47,10 +51,13 @@ function Feedback() {
 
         fetchFeedbackData();
     }, []);
-
+    const handleTableChange = (pagination) => {
+        setPage(pagination.current);
+        setPageSize(pagination.pageSize);
+    }
     return (
-        <div >
-            <Table columns={columns} dataSource={feedbackData} />;
+        <div className='bordered-table'>
+            <Table columns={columns} dataSource={feedbackData} onChange={handleTableChange} pagination={{ total: feedbackData?.length, current: page, pageSize: pageSize }} />
         </div>
     )
 }

@@ -61,6 +61,10 @@ function CompanyDetails() {
                     <>
                         <Descriptions title="Company Info" column={1} bordered items={company} />
                         <br></br>
+                        <br></br>
+                        <p>If you have misplaced your access token, you can obtain a new one by using the button provided below.</p>
+                        <br></br>
+                        <br></br>
                         <Button onClick={handleRegenerateToken}>
                             Regenerate Access Token
                         </Button>
