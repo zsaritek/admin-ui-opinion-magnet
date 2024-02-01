@@ -9,6 +9,7 @@ function Analytics() {
     const [averageWordNumber, setAverageWordNumber] = useState(0);
     const [feedbacksPerMonth, setfeedbacksPerMonth] = useState(0);
     const [month, setMonth] = useState(0);
+    const [activeMonth, setActiveMonth] = useState("Jan");
     const [keywords, setKeywords] = useState(null);
     const [clusters, setClusters] = useState(null);
     const [clusterwords, setClusterwords] = useState(null);
@@ -23,6 +24,7 @@ function Analytics() {
                 setNumberFeedbacks(average.data.numberFeedbacks)
                 setAverageWordNumber(average.data.averageWordNumber)
                 setfeedbacksPerMonth(average.data.feedbacksPerMonth)
+                setMonth(average.data.feedbacksPerMonth["Jan"])
 
                 const words = await feedbackService.getMostPopularWords();
                 setKeywords(words.data.popularWords);
@@ -48,6 +50,7 @@ function Analytics() {
         console.log(feedbacksPerMonth)
         console.log(feedbacksPerMonth[el])
         setMonth(feedbacksPerMonth[el])
+        setActiveMonth(el)
     }
     
     return (
@@ -67,12 +70,16 @@ function Analytics() {
                         <h2 className="text-gray-800"> Words/feedback</h2>
                     </div>
                     <div className="flex flex-col p-3 sm:p-0 justify-center items-center    w-full sm:h-1/4 bg-[#fdf4f7] rounded-lg " style={{  boxShadow: '0 4px 6px rgba(0, 0, 0, 0.4)' }}>
-                        <p>{["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"].map((el, index) =>{
-                            return <span key={index} onClick={() => handleMonth(el)}>{el}</span>
+                        <div className="flex flex-wrap justify-center">{["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"].map((el, index) =>{
+                            if(activeMonth === el) {
+                                return <span className="font-bold ml-2 mr-2" key={index} onClick={() => handleMonth(el)}>{el}</span>
+                            } else {
+                                return <span className=" ml-2 mr-2" key={index} onClick={() => handleMonth(el)}>{el}</span>
+                            }
                         }
-                         )}</p>
+                         )}</div>
                         <h2 className="text-5xl mb-3 sm:mb-10 text-gray-800"> {month}</h2>
-                        <h2 className="text-gray-800"> Number of feedbacks</h2>
+                        <h2 className="text-gray-800"> Feedbacks per month</h2>
                     </div>
                 </div>
 
