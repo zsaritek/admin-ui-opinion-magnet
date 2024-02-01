@@ -23,6 +23,12 @@ class CompanyService {
 
     regenerateAccessToken = () => {
         return this.api.patch("/company");
+    };
+    postMeeting = (body) => {
+        return this.api.post("/meeting", body);
+    }
+    deleteMeeting = () => {
+        return this.api.delete("/meeting");
     }
 }
 

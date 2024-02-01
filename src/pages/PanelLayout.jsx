@@ -47,7 +47,7 @@ function PanelLayout() {
                     </div>
                 </div> */}
 
-                    <div className="flex flex-col py-10 px-16 h-screen overflow-y-auto w-full">
+                    <div className="flex flex-col py-10 px-4 sm:px-16 h-screen overflow-y-auto w-full">
                         {dashboard && <Dashboard />}
                         {feedback && <Feedback />}
                         {companyDetails && <CompanyDetails />}
