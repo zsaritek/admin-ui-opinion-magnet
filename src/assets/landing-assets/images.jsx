@@ -18,7 +18,8 @@ const images = {
     IllustrationIntro: new URL('./IllustrationIntro.png', import.meta.url).href,
     IllustrationSproductive: new URL('./IllustrationSproductive.png', import.meta.url).href,
     Iconsecurity: new URL('./Iconsecurity.svg', import.meta.url).href,
-
+    App: new URL('./app.png', import.meta.url).href,
+    PacketJson: new URL('./packet.json.png', import.meta.url).href,
 }
 
 export default images
