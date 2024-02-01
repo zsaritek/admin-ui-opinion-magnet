@@ -1,7 +1,6 @@
 import { useContext } from "react";
 import Sidebar from "../components/Sidebar";
 import { SelectedItemContext } from "../context/selectedItem.context";
-import DefaultAvatar from "../assets/avatar.png";
 import Dashboard from "./Dashboard"
 import Feedback from "./Feedback";
 import CompanyDetails from "./CompanyDetails";

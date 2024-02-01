@@ -1,12 +1,18 @@
 import logo from '../assets/landing-assets/logo.png';
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import DefaultAvatar from "../assets/avatar.png";
+import { AuthContext } from "../context/auth.context";
 
 const Navbar = () => {
     const navigate = useNavigate();
     const [isProfileOpen, setIsProfileOpen] = useState(false);
+    const { logOutUser, user } = useContext(AuthContext);
 
+    const handleLogout = () => {
+        logOutUser();
+        navigate("/");
+    }
     return (
         <nav className='w-full flex justify-between text-white navbar px-10 py-4 border'>
             <img src={logo} alt="logo" className="w-[120px] h-[40px]" onClick={() => (navigate("/"))} />
@@ -19,22 +25,19 @@ const Navbar = () => {
                 {isProfileOpen && (
                     <div id="dropdownAvatar" className="z-10 bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600 absolute top-11">
                         <div className="px-4 py-3 text-sm text-gray-900 dark:text-white">
-                            <div>Bonnie Green</div>
-                            <div className="font-medium truncate">name@flowbite.com</div>
+                            <div>{user.name}</div>
+                            <div className="font-medium truncate">{user.email}</div>
                         </div>
                         <ul className="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownUserAvatarButton">
                             <li>
-                                <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Dashboard</a>
+                                <a href="/dashboard" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Dashboard</a>
                             </li>
                             <li>
-                                <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Settings</a>
-                            </li>
-                            <li>
-                                <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Earnings</a>
+                                <a href="/profile" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Profile</a>
                             </li>
                         </ul>
                         <div className="py-2">
-                            <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Sign out</a>
+                            <div className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white" onClick={handleLogout} >Log out</div>
                         </div>
                     </div>)}
             </div>
