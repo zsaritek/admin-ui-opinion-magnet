@@ -22,6 +22,7 @@ function AuthProviderWrapper(props) {
                 .verify()
                 .then((response) => {
                     const user = response.data;
+                    console.log(user)
                     // Update state variables
                     setIsLoggedIn(true);
                     setIsLoading(false);

@@ -9,6 +9,7 @@ function SelectedItemProviderWrapper(props) {
     const [analytics, setAnalytics] = useState(false)
     const [strategicMeeting, setStrategicMeeting] = useState(false)
     const [helpCenter, setHelpCenter] = useState(false)
+    const [profileImage, setProfileImage] = useState("https://readymadeui.com/profile_2.webp")
 
     useEffect(() => {
         setDashboard(true)
@@ -64,7 +65,9 @@ function SelectedItemProviderWrapper(props) {
                 selectHelpCenter,
                 selectCompanyDetails,
                 selectAnalytics,
-                selectStrategicMeeting
+                selectStrategicMeeting,
+                setProfileImage,
+                profileImage
             }}
         >
             {props.children}

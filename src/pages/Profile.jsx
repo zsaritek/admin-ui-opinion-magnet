@@ -2,12 +2,14 @@ import { useContext, useState, useEffect } from 'react';
 import { AuthContext } from "../context/auth.context";
 import profileService from '../services/profile.service';
 import Navbar from '../components/Navbar';
+import { SelectedItemContext } from '../context/selectedItem.context';
 
 
 function ProfilePage() {
   const { user } = useContext(AuthContext);
   const [image, setImage] = useState("");
   const [url, setUrl] = useState("");
+  const {profileImage, setProfileImage} = useContext(SelectedItemContext);
 
   useEffect(() => {
     // setUrl(user.image) 
@@ -30,6 +32,8 @@ function ProfilePage() {
 
       // Assuming your server responds with the image URL after successful upload
       setUrl(response.data);
+      setProfileImage(response.data)
+      
       console.log(user)
     } catch (error) {
       console.error(error);
@@ -46,7 +50,7 @@ function ProfilePage() {
     <>
       <Navbar />
       <div className="flex flex-col mt-20">
-        {url && <img src={url} alt="Profile Image" className="w-30 h-30 rounded-full mx-auto" />}
+        {url && <img src={profileImage} alt="Profile Image" className="w-30 h-30 rounded-full mx-auto" />}
         <form onSubmit={handleUpload} className="max-w-md mx-auto space-y-4 font-[sans-serif] text-[#333] mt-4">
           <div className="font-[sans-serif] max-w-md mx-auto">
             <label className="text-sm text-black mb-2 block">Upload file</label>

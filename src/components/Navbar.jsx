@@ -1,13 +1,19 @@
 import logo from '../assets/landing-assets/logo.png';
-import { useState, useContext } from 'react';
+import { useState, useContext, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import DefaultAvatar from "../assets/avatar.png";
 import { AuthContext } from "../context/auth.context";
+import { SelectedItemContext } from '../context/selectedItem.context';
 
 const Navbar = () => {
     const navigate = useNavigate();
     const [isProfileOpen, setIsProfileOpen] = useState(false);
     const { logOutUser, user } = useContext(AuthContext);
+    const {profileImage, setProfileImage} = useContext(SelectedItemContext);
+    
+    useEffect(() => {
+        setProfileImage(user.image)
+    }, [])
 
     const handleLogout = () => {
         logOutUser();
@@ -19,7 +25,7 @@ const Navbar = () => {
             <div className="justify-end items-center flex flex-1 relative">
                 <button id="dropdownUserAvatarButton" onClick={() => setIsProfileOpen(!isProfileOpen)} className="flex text-sm bg-gray-800 rounded-full md:me-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600" type="button">
                     <span className="sr-only">Open user menu</span>
-                    <img className="w-8 h-8 rounded-full" src={DefaultAvatar} alt="user photo" />
+                    <img className="w-8 h-8 rounded-full" src={profileImage} alt="user photo" />
                 </button>
 
                 {isProfileOpen && (
