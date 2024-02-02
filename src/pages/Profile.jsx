@@ -38,7 +38,7 @@ function ProfilePage() {
     <>
       <Navbar />
       <div className="flex flex-col item-center justify-center mt-20">
-        {profileImage && <img src={profileImage} alt="Profile Image" className="w-30 h-30 rounded-full mx-auto" />}
+        {profileImage && <img src={profileImage} alt="Profile Image" className="w-15 h-15 rounded-full mx-auto" />}
         <form onSubmit={handleUpload} className="max-w-md mx-auto space-y-4 font-[sans-serif] text-[#333] mt-4">
           <div className="font-[sans-serif] max-w-md mx-auto">
             <label className="text-sm text-gray-500 mt-3 mb-4 block">Customize your profile page with any image of your choice to add a personal touch.</label>
