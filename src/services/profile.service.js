@@ -20,6 +20,9 @@ class ProfileService {
     uploadImage = (body) => {
         return this.api.post("/upload", body);
     };
+    getImage = () => {
+        return this.api.get("/image");
+    }
 
 
 }

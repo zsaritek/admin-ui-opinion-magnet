@@ -4,16 +4,26 @@ import { useNavigate } from 'react-router-dom';
 import DefaultAvatar from "../assets/avatar.png";
 import { AuthContext } from "../context/auth.context";
 import { SelectedItemContext } from '../context/selectedItem.context';
+import profileService from '../services/profile.service';
+
 
 const Navbar = () => {
     const navigate = useNavigate();
     const [isProfileOpen, setIsProfileOpen] = useState(false);
-    const { logOutUser, user } = useContext(AuthContext);
+    const { logOutUser, user, authenticateUser } = useContext(AuthContext);
     const {profileImage, setProfileImage} = useContext(SelectedItemContext);
-    
+    console.log(user.image)
+    // useEffect(() => {
+    //     setProfileImage(user.image)
+    // }, [])
+
     useEffect(() => {
-        setProfileImage(user.image)
-    }, [])
+        const setNewImage = async () => {
+          const newImage = await profileService.getImage()
+          setProfileImage(newImage.data.image)
+        }
+        setNewImage();
+      }, [])
 
     const handleLogout = () => {
         logOutUser();

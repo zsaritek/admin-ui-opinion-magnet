@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import profileService from "../services/profile.service";
 
 const SelectedItemContext = React.createContext();
 
