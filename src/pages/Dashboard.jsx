@@ -29,7 +29,7 @@ function Dashboard() {
     }, []);
 
     return (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 sm:gap-4 sm:p-4 h-full">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2  sm:gap-4 sm:p-4 h-full">
             {/* Card 1 */}
             <div className="bg-white rounded-lg p-10 m-3 sm:m-10 shadow-md flex flex-col items-center">
                 <h2 className="text-xl sm:text-3xl font-semibold mb-10">Total Feedbacks</h2>
