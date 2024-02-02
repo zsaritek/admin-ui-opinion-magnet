@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import feedbackService from "../services/feedback.service";
-import { PieChart, AreaChart, BarChart, ColumnChart } from 'react-chartkick';
+import { PieChart, AreaChart, ColumnChart } from 'react-chartkick';
 import 'chartkick/chart.js'
 
 function Analytics() {
