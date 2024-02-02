@@ -24,6 +24,9 @@ class CompanyService {
     regenerateAccessToken = () => {
         return this.api.patch("/company");
     };
+    getMeeting = () => {
+        return this.api.get(("/meeting"))
+    };
     postMeeting = (body) => {
         return this.api.post("/meeting", body);
     }
