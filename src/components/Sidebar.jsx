@@ -82,7 +82,7 @@ function Sidebar(props) {
 
   return (
     <div className={
-      "py-6 h-screen flex flex-col border border-r-1 bg-[#FDFDFD] relative" +
+      "py-6 h-screen flex flex-col border border-r-1 bg-white relative" +
       (isExpanded ? " px-6" : " px-4")
     }>
       <div
