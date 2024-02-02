@@ -2,8 +2,7 @@
 export default {
   content: [
     "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
-    'node_modules/flowbite-react/lib/esm/**/*.js'
+    "./src/**/*.{js,ts,jsx,tsx}"
   ],
   mode: "jit",
   theme: {
@@ -35,8 +34,6 @@ export default {
       xl: "1700px",
     },
   },
-  plugins: [
-    require('flowbite/plugin')
-  ]
+  plugins: []
 }
 
