@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import feedbackService from "../services/feedback.service";
-import { PieChart, AreaChart, BarChart, ColumnChart } from 'react-chartkick';
+import { PieChart, AreaChart, ColumnChart } from 'react-chartkick';
 import 'chartkick/chart.js'
 
 function Analytics() {
@@ -54,7 +54,7 @@ function Analytics() {
     }
 
     return (
-        <div className="bg-slate-300 rounded-lg w-11/12 sm:w-full flex justify-center items-center">
+        <div className="bg-gray-100 rounded-lg w-11/12 sm:w-full flex justify-center items-center">
             <div className="flex flex-col w-10/12 justify-center sm:flex-row sm:w-full">
                 <div className=" flex-col w-10/12 sm:w-1/4 rounded-lg mt-10 sm:mb-10 sm:ml-10 mx-auto">
                     <div className="flex flex-col p-3 sm:p-0 justify-center items-center w-full sm:h-1/4 bg-[#fdf4f7] rounded-lg mb-1" style={{ boxShadow: '0 4px 6px rgba(0, 0, 0, 0.4)' }}>
@@ -70,16 +70,8 @@ function Analytics() {
                         <h2 className="text-gray-800"> Words/feedback</h2>
                     </div>
                     <div className="flex flex-col p-3 sm:p-0 justify-center items-center    w-full sm:h-1/4 bg-[#fdf4f7] rounded-lg " style={{ boxShadow: '0 4px 6px rgba(0, 0, 0, 0.4)' }}>
-                        <div className="flex flex-wrap justify-center">{["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"].map((el, index) => {
-                            if (activeMonth === el) {
-                                return <span className="font-bold ml-2 mr-2" key={index} onClick={() => handleMonth(el)}>{el}</span>
-                            } else {
-                                return <span className=" ml-2 mr-2" key={index} onClick={() => handleMonth(el)}>{el}</span>
-                            }
-                        }
-                        )}</div>
-                        <h2 className="text-5xl mb-3 sm:mb-10 text-gray-800"> {month}</h2>
-                        <h2 className="text-gray-800"> Feedbacks per month</h2>
+                        <h2 className="text-5xl mb-3 sm:mb-10 text-gray-800"> {(numberFeedbacks / 12).toFixed(2)}</h2>
+                        <h2 className="text-gray-800"> Feedbacks/month</h2>
                     </div>
                 </div>
 
