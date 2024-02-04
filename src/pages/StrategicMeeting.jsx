@@ -1,15 +1,12 @@
-import { useState, useEffect, useContext } from 'react';
+import { useState, useEffect } from 'react';
 import { Calendar } from 'antd';
 import companyService from '../services/company.service';
 import Spinner from '../components/Spinner';
-import  { AuthContext } from "../context/auth.context";
 
 const StrategicMeeting = () => {
   const [selectedDay, setSelectedDay] = useState(null);
   const [meeting, setMeeting] = useState(false);
   const [loading, setLoading] = useState(true);
-
-  const {isLoading} = useContext(AuthContext);
 
   const handleSelect = (value) => {
     console.log("Value", typeof (value.$d.toDateString()))
@@ -22,18 +19,27 @@ const StrategicMeeting = () => {
   }
 
   useEffect(() => {
-    const savedMeeting = async () => {
-      const data = await companyService.getMeeting();
-      console.log(data.data)
-      if (data.data.meeting) {
-        setMeeting(true);
-        setSelectedDay(data.data.meeting);
-        setLoading(false);
-      } else {
-        setLoading(false);
+
+    try {
+      setLoading(true);
+      const savedMeeting = async () => {
+        const data = await companyService.getMeeting();
+        console.log(data.data)
+        if (data.data.meeting) {
+          setMeeting(true);
+          setSelectedDay(data.data.meeting);
+          setLoading(false);
+        } else {
+          setLoading(false);
+        }
       }
+      savedMeeting();
+      
+    } catch (error) {
+      console.log(error)
+    } finally {
+      setLoading(false);
     }
-    savedMeeting();
   }, [])
 
   useEffect(() => {
@@ -55,7 +61,7 @@ const StrategicMeeting = () => {
   }, [meeting])
 
   return (
-    <div> {isLoading? (<Spinner />) : (
+    <div> {loading? (<Spinner />) : (
     <div className="container mx-auto p-4 md:p-8">
       <h1 className="mt-8 text-3xl font-bold text-black text-center sm:text-left sm:text-4xl">Strategic Meeting</h1>
 

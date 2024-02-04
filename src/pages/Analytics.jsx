@@ -3,7 +3,6 @@ import feedbackService from "../services/feedback.service";
 import { PieChart, AreaChart, ColumnChart } from 'react-chartkick';
 import 'chartkick/chart.js';
 import Spinner from '../components/Spinner';
-import  { AuthContext } from "../context/auth.context";
 
 
 function Analytics() {
@@ -18,12 +17,12 @@ function Analytics() {
     const [clusterwords, setClusterwords] = useState(null);
     const [timedata, setTimedata] = useState(null);
     const [histogram, setHistogram] = useState([]);
-
-    const { isLoading } = useContext(AuthContext);
+    const [loading, setLoading] = useState(false);
 
     useEffect(() => {
         const fetchData = async () => {
             try {
+                setLoading(true)
                 const average = await feedbackService.getAverage();
                 setAverage(average.data.averageRating)
                 setNumberFeedbacks(average.data.numberFeedbacks)
@@ -45,6 +44,8 @@ function Analytics() {
 
             } catch (error) {
                 console.log(error)
+            } finally {
+                setLoading(false);
             }
         }
         fetchData();
@@ -60,7 +61,7 @@ function Analytics() {
 
     return (
         <div>
-        {isLoading? (<Spinner />) : (
+        {loading? (<Spinner />) : (
         <div className="bg-gray-100 rounded-lg w-11/12 sm:w-full flex justify-center items-center">
             <div className="flex flex-col w-10/12 justify-center sm:flex-row sm:w-full">
                 <div className=" flex-col w-10/12 sm:w-1/4 rounded-lg mt-10 sm:mb-10 sm:ml-10 mx-auto">
