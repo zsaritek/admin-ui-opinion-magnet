@@ -11,6 +11,7 @@ function Dashboard() {
         const fetchData = async () => {
             try {
                 const average = await feedbackService.getAverage();
+                console.log(average)
                 setFeedCount(average.data.numberFeedbacks);
             } catch (error) {
                 console.log(error);
@@ -29,6 +30,7 @@ function Dashboard() {
     }, []);
 
     return (
+        <div className="container mx-auto p-4 md:p-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2  sm:gap-4 sm:p-4 h-full">
             {/* Card 1 */}
             <div className="bg-white rounded-lg p-10 m-3 sm:m-10 shadow-md flex flex-col items-center">
@@ -54,6 +56,7 @@ function Dashboard() {
                 <p className="my-5 text-gray-600 text-md leading-9 text-justify sm:text-left">With your current basic abo you get 7 descriptive analyses. For more in-depth data modeling, upgrade to premium!</p>
                 <AnalyticsIcons className="text-xl sm:text-3xl"/>
             </div>
+        </div>
         </div>
     );
 }
