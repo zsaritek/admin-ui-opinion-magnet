@@ -1,11 +1,15 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { Calendar } from 'antd';
 import companyService from '../services/company.service';
+import Spinner from '../components/Spinner';
+import  { AuthContext } from "../context/auth.context";
 
 const StrategicMeeting = () => {
   const [selectedDay, setSelectedDay] = useState(null);
   const [meeting, setMeeting] = useState(false);
   const [loading, setLoading] = useState(true);
+
+  const {isLoading} = useContext(AuthContext);
 
   const handleSelect = (value) => {
     console.log("Value", typeof (value.$d.toDateString()))
@@ -51,6 +55,7 @@ const StrategicMeeting = () => {
   }, [meeting])
 
   return (
+    <div> {isLoading? (<Spinner />) : (
     <div className="container mx-auto p-4 md:p-8">
       <h1 className="mt-8 text-3xl font-bold text-black text-center sm:text-left sm:text-4xl">Strategic Meeting</h1>
 
@@ -71,6 +76,8 @@ const StrategicMeeting = () => {
         {meeting ? <p>Cancel meeting</p> : <p>Request Meeting</p>}
       </button>
     </div >
+    )}
+    </div>
   );
 
 };

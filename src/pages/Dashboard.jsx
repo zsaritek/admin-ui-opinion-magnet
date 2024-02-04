@@ -1,11 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import feedbackService from '../services/feedback.service';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChartBar, faChartLine, faChartArea } from '@fortawesome/free-solid-svg-icons';
+import Spinner from '../components/Spinner';
+import  { AuthContext } from "../context/auth.context";
 
 function Dashboard() {
     const [feedCount, setFeedCount] = useState(0);
     const [currentTime, setCurrentTime] = useState(new Date());
+
+    const { isLoading } = useContext(AuthContext);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -30,6 +34,8 @@ function Dashboard() {
     }, []);
 
     return (
+        <div>
+        {isLoading? (<Spinner />): (
         <div className="container mx-auto p-4 md:p-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2  sm:gap-4 sm:p-4 h-full">
             {/* Card 1 */}
@@ -57,6 +63,8 @@ function Dashboard() {
                 <AnalyticsIcons className="text-xl sm:text-3xl"/>
             </div>
         </div>
+        </div>
+        )}
         </div>
     );
 }

@@ -1,7 +1,10 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect,  useContext } from "react";
 import feedbackService from "../services/feedback.service";
 import { PieChart, AreaChart, ColumnChart } from 'react-chartkick';
-import 'chartkick/chart.js'
+import 'chartkick/chart.js';
+import Spinner from '../components/Spinner';
+import  { AuthContext } from "../context/auth.context";
+
 
 function Analytics() {
     const [average, setAverage] = useState(0);
@@ -15,6 +18,8 @@ function Analytics() {
     const [clusterwords, setClusterwords] = useState(null);
     const [timedata, setTimedata] = useState(null);
     const [histogram, setHistogram] = useState([]);
+
+    const { isLoading } = useContext(AuthContext);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -54,6 +59,8 @@ function Analytics() {
     }
 
     return (
+        <div>
+        {isLoading? (<Spinner />) : (
         <div className="bg-gray-100 rounded-lg w-11/12 sm:w-full flex justify-center items-center">
             <div className="flex flex-col w-10/12 justify-center sm:flex-row sm:w-full">
                 <div className=" flex-col w-10/12 sm:w-1/4 rounded-lg mt-10 sm:mb-10 sm:ml-10 mx-auto">
@@ -133,6 +140,8 @@ function Analytics() {
                 )
             })}
             {clusterwords && <PieChart data={clusterwords[2]} />} */}
+        </div>
+        )}
         </div>
     );
 }

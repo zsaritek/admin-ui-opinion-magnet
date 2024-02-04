@@ -7,6 +7,7 @@ import PanelLayout from "./pages/PanelLayout";
 import Profile from './pages/Profile';
 import Landing from './pages/Landing';
 import HowOpinionMagnetWorks from './pages/HowOpinionMagnetWorks';
+import NotFound from './pages/NotFound';
 
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
         <Route path="/dashboard" element={<IsPrivate> <PanelLayout /> </IsPrivate>}></Route>
         <Route path="/profile" element={<IsPrivate> <Profile /> </IsPrivate>}></Route>
 
+        <Route path='*' element={<NotFound />}> </Route>
 
       </Routes>
     </>
