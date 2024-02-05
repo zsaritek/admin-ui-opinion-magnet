@@ -12,11 +12,11 @@ function HowOpinionMagnetWorks() {
           <img src={images.BackgroundCurveMobile} alt="background-image" />
         </picture>
         <div className="max-w-[800px] text-white text-xl leading-relaxed font-raleway text-left">
-          <h2 className='font-bold mb-4 text-center'> WHAT IS THE UNICORN COMPANY ?</h2>
+          <h2 className='font-bold mb-4 text-center'> WHAT MAKES UNICORN COMPANIES RELEVANT TO OUR FIELD OF BUSINESS ?</h2>
           Unicorn companies typically go through a process of raising significant funding from private investors and venture capital firms before going public. This phase is often referred to as the "pre-IPO financing round" or simply the "series financing round." During this stage, unicorn companies secure substantial funding at high valuations from investors.
           However, the culmination of this pre-public phase is usually the "IPO (Initial Public Offering)." An IPO marks the point at which a company decides to make its shares available to the general public. The company issues its shares on the stock market, and from that moment onward, investors can buy and trade these shares on the public exchange.
 
-          <h2 className='font-bold mb-4 mt-4 text-center'> WHY IS THIS PROCESS IMPORTANT  ?</h2>
+          <h2 className='font-bold mb-4 mt-4 text-center'> WHAT SIGNIGICANCE DOES THIS PROCESS HOLD  ?</h2>
           Assessing customer feedback and reviews can play a significant role for investment banks guiding unicorn companies through the IPO process. Here are key contributions that such feedback can provide:
           Reputation and Trust: Customer feedback and reviews can reflect a company's reputation and customer trust, presenting a positive impression to potential investors. A strong reputation is crucial for gaining investor confidence during the IPO process.
           Risk Assessment: Negative feedback and reviews can help identify potential risks that the company may face. This assists investors in understanding and preparing for these risks more effectively.
@@ -25,10 +25,15 @@ function HowOpinionMagnetWorks() {
           Strategic Direction: Feedback and reviews serve as a valuable source for understanding the company's strategic management and future growth plans. Investors may use this information to assess the company's vision for the future.
           Competitive Advantage: Customer feedback can emphasize the company's competitive advantages and unique features compared to competitors. This helps demonstrate the company's strength and position in the market.
 
+          <h2 className='font-bold mb-4 mt-4 text-center'> OUR MISSION </h2>
+          At Opinion Magnet, our mission is to empower investment banks guiding unicorn companies through the Initial Public Offering (IPO) process by leveraging the valuable insights derived from customer feedback and reviews. We recognize the pivotal role these assessments play in shaping the success of our clients, and we are committed to providing
+          unparalleled solutions that enhance their journey to the public markets.we are committed to being a catalyst for success during the IPO process, facilitating a transparent and informed investment environment through the power of customer feedback analysis.
           <h2 className='font-bold mb-4 mt-4 text-center'> WHO IS OUR CUSTOMER ?</h2>
           Investment banks can leverage such feedback to accentuate the company's strengths or address weaknesses during the IPO process. However, these insights are just one part of the evaluation process and should be considered alongside financial indicators, market conditions, and other relevant factors.
           We want to share with our esteemed customers how you can make the most of the services we offer.
-          We will guide you through each step here.
+
+          <h2 className='font-bold mb-4 mt-4 text-center'> HOW DOES OUR SYSTEM WORK ?</h2>
+          We kindly ask you to follow the necessary instructions below.You can call us to get support.We will guide you through each step here.
           <h2 className='underline mt-4 mb-4'>Step 1</h2>
           To begin, please install the `npm install react-opinion-magnet`` package from <a href='https://www.npmjs.com/package/react-opinion-magnet'> Npm Registry </a>
           By following the instructions provided, you will be able to seamlessly install the npm package on your page. Should you encounter any issues, feel free to reach out to us for assistance.
@@ -46,6 +51,8 @@ function HowOpinionMagnetWorks() {
           Always remember, we are here as your solution partner.
         </div>
       </section >
+      <br />
+      <br />
       <Footer />
     </div >
   )
