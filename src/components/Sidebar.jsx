@@ -1,4 +1,4 @@
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import {
   BarChart3Icon,
@@ -25,6 +25,19 @@ function Sidebar(props) {
   const navigate = useNavigate();
 
   const { logOutUser } = useContext(AuthContext);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsExpanded(window.innerWidth > 786);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
 
 
   const sidebarLinks = [
@@ -91,13 +104,6 @@ function Sidebar(props) {
       >
         <img src={RightArrowIcon} className="w-2" />
       </div>
-      {/* <div className="logo-div flex space-x-4 items-center">
-        <img src={Logo} onClick={() => {
-          const item = sidebarLinks[0]
-          item.onClick()
-          setActiveNavIndex(0)
-        }} />
-      </div>  */}
       <div className="flex flex-col space-y-8">
         {sidebarLinks.map((item, index) => {
           return (
